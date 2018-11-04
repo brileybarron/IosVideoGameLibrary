@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1CE51837740B9C2050B633D6 /* Pods_IosVideoGameLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E94211D7013040AA749071C /* Pods_IosVideoGameLibrary.framework */; };
+		3B1B6497218F8DA3008B81A5 /* EditGameVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B1B6496218F8DA3008B81A5 /* EditGameVC.swift */; };
 		3BA5CC4A218B537200F46180 /* LibraryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA5CC49218B537200F46180 /* LibraryCell.swift */; };
 		3BA6F0CA21875706004B7572 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA6F0C921875706004B7572 /* AppDelegate.swift */; };
 		3BA6F0CF21875706004B7572 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3BA6F0CD21875706004B7572 /* Main.storyboard */; };
@@ -24,6 +25,7 @@
 
 /* Begin PBXFileReference section */
 		2E94211D7013040AA749071C /* Pods_IosVideoGameLibrary.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_IosVideoGameLibrary.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3B1B6496218F8DA3008B81A5 /* EditGameVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditGameVC.swift; sourceTree = "<group>"; };
 		3BA5CC49218B537200F46180 /* LibraryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryCell.swift; sourceTree = "<group>"; };
 		3BA6F0C621875706004B7572 /* IosVideoGameLibrary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IosVideoGameLibrary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3BA6F0C921875706004B7572 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -78,6 +80,7 @@
 				3BA6F0C921875706004B7572 /* AppDelegate.swift */,
 				3BA6F0DF21875D05004B7572 /* LibraryVC.swift */,
 				3BA6F0E721878CB4004B7572 /* AddQuestionVC.swift */,
+				3B1B6496218F8DA3008B81A5 /* EditGameVC.swift */,
 				3BA6F0E521877D2B004B7572 /* Library.swift */,
 				3BA6F0DB218757F3004B7572 /* VideoGame.swift */,
 				3BA6F0DD218758D1004B7572 /* ESRBRating.swift */,
@@ -221,6 +224,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3B1B6497218F8DA3008B81A5 /* EditGameVC.swift in Sources */,
 				3BA5CC4A218B537200F46180 /* LibraryCell.swift in Sources */,
 				3BA6F0E821878CB4004B7572 /* AddQuestionVC.swift in Sources */,
 				3BA6F0DE218758D1004B7572 /* ESRBRating.swift in Sources */,

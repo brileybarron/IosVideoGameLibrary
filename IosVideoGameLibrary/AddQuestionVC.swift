@@ -23,7 +23,7 @@ class AddGameVC: UIViewController {
                   "sports",
                   "strategy",
                   "misc"]
-    var selectedGenre: String = "misc"
+    var selectedGenre: String = "adventure"
     
     //Outlets
     @IBOutlet weak var titleTextField: UITextField!

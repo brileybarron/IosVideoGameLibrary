@@ -14,9 +14,9 @@ class LibraryCell: UITableViewCell {
     @IBOutlet weak var ratingLabel: UILabel!
     @IBOutlet weak var genreLabel: UILabel!
     @IBOutlet weak var availabilityView: UIView!
+    var game = VideoGame(title: "a", genre: .shooter, ESRB: .NR, description: "b")
     
-    
-    func setup(_ game: VideoGame) {
+    func setup() {
         titleLabel.text = game.title
         genreLabel.text = game.genre.rawValue
         ratingLabel.text = game.ESRB.rawValue

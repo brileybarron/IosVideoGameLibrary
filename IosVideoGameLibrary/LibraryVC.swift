@@ -12,7 +12,7 @@ import DZNEmptyDataSet
 class LibraryVC: UIViewController{
     //singleton
     let library = Library.sharedInstance
-    
+    var selectedCellGame: VideoGame?
     //tableview
     @IBOutlet weak var tableView: UITableView!
     
@@ -37,10 +37,16 @@ class LibraryVC: UIViewController{
         
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.destination is EditGameVC {
+            (segue.destination as! EditGameVC).game = (sender as! LibraryCell).game
+        }
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        tableView.reloadData()//reload the data anytime the biew appears againa
+        tableView.reloadData()//reload the data anytime the view appears again
     }
     /*
      // MARK: - Navigation
@@ -59,13 +65,13 @@ class LibraryVC: UIViewController{
         let dueDate = calendar.date(byAdding: .day, value: 7, to: Date())!
         
         game.avaliability = .checkedOut(dueDate: dueDate)
-        (tableView.cellForRow(at: indexPath) as! LibraryCell).setup(game)
+        (tableView.cellForRow(at: indexPath) as! LibraryCell).setup()
     }
     
     func checkIn(at indexPath: IndexPath) {
         let game = self.library.games[indexPath.row]
         game.avaliability = .checkedIn
-        (tableView.cellForRow(at: indexPath) as! LibraryCell).setup(game)
+        (tableView.cellForRow(at: indexPath) as! LibraryCell).setup()
     }
 }
 
@@ -78,13 +84,19 @@ extension LibraryVC: UITableViewDelegate, UITableViewDataSource, DZNEmptyDataSet
         return library.games.count//This gives how many rows there are
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         //Force casts the cell as a Library Cell
         let cell = tableView.dequeueReusableCell(withIdentifier: "myCell", for: indexPath) as! LibraryCell
         //takes the row the table view is on
         let game = library.games[indexPath.row]
+        //allows the cell to store this data
+        cell.game = game
         //and sets up that game
-        cell.setup(game)
+        cell.setup()
         //then returns that cell
         return cell
     }
