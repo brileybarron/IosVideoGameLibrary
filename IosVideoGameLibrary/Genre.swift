@@ -8,6 +8,17 @@
 
 import Foundation
 
-enum Genre {
-    
+enum Genre: String {
+    case action = "Action"
+    case adventure = "Adventure"
+    case fighting = "Fighting"
+    case platformer = "Platformer"
+    case puzzle = "Puzzle"
+    case racing = "Racing"
+    case roleplaying = "Role Playing Game"
+    case shooter = "Shooter"
+    case simulation = "Simulation"
+    case sports = "Sports"
+    case strategy = "Strategy"
+    case misc = "Misc."
 }

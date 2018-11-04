@@ -8,13 +8,21 @@
 
 import Foundation
 
-//class VideoGame {
-//    //properties: title, genre, rating, description, availability status, and due date
-//    var title: String
-//    var genre: Genre
-//    var rating: ESRBRating
-//    var desciption: String?
-//    var checkedIn: Bool = true
-//    var dueDate: Date?
-//    
-//}
+class VideoGame {
+    //properties: title, genre, rating, description, availability status, and due date
+    var title: String
+    var genre: Genre
+    var ESRB: ESRBRating
+    var description: String
+    var avaliability: Availability
+    var dueDate: Date?
+    
+    init(title: String, genre: Genre, ESRB: ESRBRating, description: String) {
+        self.title = title
+        self.genre = genre
+        self.ESRB = ESRB
+        self.description = description
+        self.avaliability = .checkedIn
+        
+    }
+}
