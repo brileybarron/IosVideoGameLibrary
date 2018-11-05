@@ -37,13 +37,13 @@ class LibraryVC: UIViewController{
         
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.destination is EditGameVC {
-            (segue.destination as! EditGameVC).game = (sender as! LibraryCell).game
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {//before doing a segue do this function
+        if segue.destination is EditGameVC { //if the destination is a certain VC
+            (segue.destination as! EditGameVC).game = (sender as! LibraryCell).game//Then send over the game
         }
     }
     
-    override func viewWillAppear(_ animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {//this is ran everytime the view is reloaded
         super.viewWillAppear(animated)
         
         tableView.reloadData()//reload the data anytime the view appears again
@@ -58,7 +58,7 @@ class LibraryVC: UIViewController{
      }
      */
     
-    func checkOut(at indexPath: IndexPath) {
+    func checkOut(at indexPath: IndexPath) {//gives the check
         let game = self.library.games[indexPath.row]
         
         let calendar = Calendar(identifier: .gregorian)

@@ -44,19 +44,21 @@ class EditGameVC: UIViewController {
     }
     
     func setup() {
+        //This disables everything from the beginning
         titleText.isEnabled = false
         descriptionText.isEditable = false
         ratingController.isEnabled = false
         genrePicker.isUserInteractionEnabled = false
+        //This sets up all the data from the game so the user can check the information to determine if it is correct
         titleText.text = game.title
         let index = recieveIndex(game.ESRB.rawValue)
         ratingController.selectedSegmentIndex = index
         let pickerIndex = genreIndex()
-        genrePicker.selectRow(pickerIndex, inComponent: 0, animated: false)
+        genrePicker.selectRow(pickerIndex, inComponent: 0, animated: false)//This sets the starting point of the picker view
         descriptionText.text = game.description
     }
     
-    func recieveIndex(_ ESRB: String) -> Int{
+    func recieveIndex(_ ESRB: String) -> Int{//How to recieve the index for the rating
         switch ESRB {
         case "EC":
             return 0
@@ -77,7 +79,7 @@ class EditGameVC: UIViewController {
         }
     }
     
-    func genreIndex () -> Int{
+    func genreIndex () -> Int{//How to recieve the index for the genre
         switch game.genre.rawValue{
         case "Adventure":
             return 0
@@ -106,15 +108,15 @@ class EditGameVC: UIViewController {
         }
     }
     
-    @IBAction func toggleEditingButtonTapped(_ sender: Any) {
-        if allowEditing == false{
+    @IBAction func toggleEditingButtonTapped(_ sender: Any) {//This will occur if the "toggleediting button is pressed
+        if allowEditing == false{//if everything is disabled then turn everything to be able to be enabled
             allowEditing = true
             updateGameButton.isEnabled = true
             titleText.isEnabled = true
             descriptionText.isEditable = true
             ratingController.isEnabled = true
             genrePicker.isUserInteractionEnabled = true
-        } else if allowEditing == true {
+        } else if allowEditing == true {//if everything is enabled then turn everything to disable
             allowEditing = false
             updateGameButton.isEnabled = false
             titleText.isEnabled = false
@@ -124,7 +126,7 @@ class EditGameVC: UIViewController {
         }
     }
     
-    @IBAction func updateGameButtonPressed(_ sender: Any) {
+    @IBAction func updateGameButtonPressed(_ sender: Any) { //this function will delete the original game and append the new game to that spot
         guard let title = titleText.text, title != "" else {return}
         //let newGame = VideoGame(title: title, genre: changeGenre(selectedGenre), ESRB: changeRating(ratingSegmentedController.selectedSegmentIndex), description: descriptionTextView.text)
         if let index = library.games.firstIndex(where: {$0 === game}){
@@ -139,7 +141,7 @@ class EditGameVC: UIViewController {
         }
     }
     
-    func changeGenre(_ index: String) -> Genre{
+    func changeGenre(_ index: String) -> Genre{ //this determines the genre based on the string from the picker view
         switch index {
         case "action":
             return .action
@@ -167,7 +169,7 @@ class EditGameVC: UIViewController {
             return .misc
         }
     }
-    func changeRating(_ index: Int) -> ESRBRating{
+    func changeRating(_ index: Int) -> ESRBRating{//takes the segmented controller index and converts it to the rating
         switch index {
         case 0:
             return .EC

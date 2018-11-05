@@ -42,7 +42,7 @@ class AddGameVC: UIViewController {
     
     
     @IBAction func addGame(_ sender: UIBarButtonItem) {
-        guard let title = titleTextField.text, !title.isEmpty else {
+        guard let title = titleTextField.text, !title.isEmpty else {//Gives an error if the Title is Empty
             let errorAlert = UIAlertController(title: "Error", message: "Please fill all fields or press cancel to return to the main screen", preferredStyle: UIAlertController.Style.alert)
             
             let dismissAction = UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: {UIAlertAction in})
@@ -50,7 +50,7 @@ class AddGameVC: UIViewController {
             self.present(errorAlert, animated: true, completion: nil)
             return
         }
-        let newGame = VideoGame(title: title, genre: changeGenre(selectedGenre), ESRB: changeRating(ratingSegmentedController.selectedSegmentIndex), description: descriptionTextView.text)
+        let newGame = VideoGame(title: title, genre: changeGenre(selectedGenre), ESRB: changeRating(ratingSegmentedController.selectedSegmentIndex), description: descriptionTextView.text)//Informs the user that the game was added
         let successAlert = UIAlertController(title: "Success", message: "Successfully added \(title) to the library", preferredStyle: .alert)
         let dismissAction = UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: {UIAlertAction in
             self.library.games.append(newGame)
